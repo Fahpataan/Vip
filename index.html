@@ -146,7 +146,7 @@
 </header>
 
 <!-- ===== HERO ===== -->
-<section id="top" style="position:relative;min-height:88vh;display:flex;align-items:flex-start;overflow:hidden">
+<section id="top" data-swipe="banner" style="position:relative;min-height:88vh;display:flex;align-items:flex-start;overflow:hidden">
   <img src="{{ bannerSlideUrl }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:fpZoom 1.4s ease-out both" alt="ฟ้าประทาน VIP Banner">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,24,20,.28),rgba(28,24,20,.62) 62%,rgba(28,24,20,.86));z-index:2"></div>
   
@@ -167,10 +167,10 @@
   </div>
 
   <!-- Banner controls -->
-  <button onClick="{{ prevBannerSlide }}" class="hero-btn hero-btn-left">
+  <button onClick="{{ prevBannerSlide }}" data-nav="prev" class="hero-btn hero-btn-left">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
   </button>
-  <button onClick="{{ nextBannerSlide }}" class="hero-btn hero-btn-right">
+  <button onClick="{{ nextBannerSlide }}" data-nav="next" class="hero-btn hero-btn-right">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
   </button>
 
@@ -192,15 +192,15 @@
   </div>
   <p style="font-size:16px;color:#6f6557;line-height:1.85;max-width:70ch;margin:-22px 0 44px">พิธีสงฆ์ประณีต ถูกต้องตามประเพณี พร้อมอุปกรณ์ขาว-ทองครบชุด</p>
   <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:stretch">
-    <div style="position:relative;border-radius:4px;overflow:hidden;box-shadow:0 24px 50px rgba(44,38,32,.16);min-height:440px;background:#efe7d8">
+    <div data-swipe="ceremony" style="position:relative;border-radius:4px;overflow:hidden;box-shadow:0 24px 50px rgba(44,38,32,.16);min-height:440px;background:#efe7d8">
       <img src="{{ ceremonySlideUrl }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="ภาพบรรยากาศพิธีสงฆ์ VIP">
       <div style="{{ ceremonyOverlay }}"></div>
       
       <!-- Slide controls -->
-      <button onClick="{{ prevCeremonySlide }}" style="all:unset;position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
+      <button onClick="{{ prevCeremonySlide }}" data-nav="prev" style="all:unset;position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
-      <button onClick="{{ nextCeremonySlide }}" style="all:unset;position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
+      <button onClick="{{ nextCeremonySlide }}" data-nav="next" style="all:unset;position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
       
@@ -295,15 +295,15 @@
     </div>
     <p style="font-size:16px;color:#6f6557;line-height:1.85;max-width:72ch;margin:-22px 0 44px">ไลน์อาหารบุฟเฟต์โทนขาว-ทอง สะอาด สวยงาม รสชาติไทยแท้ พร้อมป้ายเมนูทุกรายการ เลือกโทนสีจัดงานและเพิ่มเมนูพรีเมียมได้ตามแพ็กเกจ</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:44px">
-      <div style="position:relative;border-radius:4px;overflow:hidden;min-height:340px;box-shadow:0 18px 40px rgba(44,38,32,.14);background:#efe7d8">
+      <div data-swipe="food" style="position:relative;border-radius:4px;overflow:hidden;min-height:340px;box-shadow:0 18px 40px rgba(44,38,32,.14);background:#efe7d8">
         <img src="{{ foodSlideUrl }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="ไลน์อาหาร VIP">
         <div style="{{ foodOverlay }}"></div>
         
         <!-- Slide controls -->
-        <button onClick="{{ prevFoodSlide }}" style="all:unset;position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
+        <button onClick="{{ prevFoodSlide }}" data-nav="prev" style="all:unset;position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button onClick="{{ nextFoodSlide }}" style="all:unset;position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
+        <button onClick="{{ nextFoodSlide }}" data-nav="next" style="all:unset;position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         
@@ -345,12 +345,12 @@
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:44px">
-      <button onClick="{{ zoomOpen }}" data-src="menu1.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu1.jpg') center/cover" aria-label="เมนูแนะนำ 1"></button>
-      <button onClick="{{ zoomOpen }}" data-src="menu2.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu2.jpg') center/cover" aria-label="เมนูแนะนำ 2"></button>
-      <button onClick="{{ zoomOpen }}" data-src="menu3.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu3.jpg') center/cover" aria-label="เมนูแนะนำ 3"></button>
-      <button onClick="{{ zoomOpen }}" data-src="menu4.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu4.jpg') center/cover" aria-label="เมนูแนะนำ 4"></button>
-      <button onClick="{{ zoomOpen }}" data-src="menu5.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu5.jpg') center/cover" aria-label="เมนูแนะนำ 5"></button>
-      <button onClick="{{ zoomOpen }}" data-src="menu6.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('menu6.jpg') center/cover" aria-label="เมนูแนะนำ 6"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu1.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu1.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 1"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu3.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu3.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 2"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu4.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu4.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 3"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu5.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu5.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 4"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu7.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu7.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 5"></button>
+      <button onClick="{{ zoomOpen }}" data-src="food-menu8.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;aspect-ratio:3/2;background:#e6ddcb url('food-menu8.jpg') center/cover no-repeat" aria-label="เมนูแนะนำ 6"></button>
     </div>
 
     <div style="margin-bottom:44px;padding-top:8px">
@@ -423,7 +423,7 @@
       </div>
     </div>
     <div style="background:#fff;border-radius:6px;overflow:hidden;border:1px solid rgba(176,139,70,.16)">
-      <button onClick="{{ zoomOpen }}" data-src="round_table3.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;height:280px;background:url('round_table3.jpg') center/cover"></button>
+      <button onClick="{{ zoomOpen }}" data-src="table-typeb.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;height:280px;background:url('table-typeb.jpg') center/cover"></button>
       <div style="padding:26px 28px">
         <div style="font-size:13px;letter-spacing:2px;color:#8f6f33;text-transform:uppercase;margin-bottom:7px">Style B</div>
         <div style="font-size:20px;font-weight:600;margin-bottom:6px">โต๊ะกลม ดีไซน์ใหม่</div>
@@ -438,6 +438,10 @@
     <button onClick="{{ zoomOpen }}" data-src="styleb.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('styleb.jpg') center/cover"></button>
     <button onClick="{{ zoomOpen }}" data-src="round_table1.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('round_table1.jpg') center/cover"></button>
     <button onClick="{{ zoomOpen }}" data-src="round_table2.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('round_table2.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-new1.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new1.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-new2.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new2.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-new3.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new3.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-new4.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new4.jpg') center/cover"></button>
   </div>
   <div style="display:flex;align-items:flex-start;gap:12px;margin-top:24px;background:#efe7d8;border-radius:4px;padding:20px 24px">
     <span style="color:#8f6f33;font-size:18px;line-height:1.4">✦</span>
@@ -791,6 +795,46 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+/* Touch swipe for all sliders (banner / ceremony / food).
+   Uses event delegation so it survives framework re-renders:
+   on swipe it triggers the existing prev/next button inside the
+   nearest [data-swipe] container. */
+(function () {
+  var startX = 0, startY = 0, startT = 0, tracking = false, container = null;
+  var THRESHOLD = 40;      // min horizontal px to count as a swipe
+  var MAX_OFF_AXIS = 1.2;  // horizontal must dominate vertical
+  var MAX_TIME = 800;      // ms, ignore slow drags
+
+  function findNav(c, dir) {
+    return c.querySelector('[data-nav="' + dir + '"]') ||
+           c.querySelector(dir === 'next' ? '.hero-btn-right' : '.hero-btn-left');
+  }
+
+  document.addEventListener('touchstart', function (e) {
+    var c = e.target.closest && e.target.closest('[data-swipe]');
+    if (!c || e.touches.length > 1) { tracking = false; container = null; return; }
+    container = c; tracking = true;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startT = Date.now();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function (e) {
+    if (!tracking || !container) return;
+    tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - startX, dy = t.clientY - startY;
+    var dt = Date.now() - startT;
+    if (dt <= MAX_TIME && Math.abs(dx) > THRESHOLD &&
+        Math.abs(dx) > Math.abs(dy) * MAX_OFF_AXIS) {
+      var btn = findNav(container, dx < 0 ? 'next' : 'prev');
+      if (btn) btn.click();
+    }
+    container = null;
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
