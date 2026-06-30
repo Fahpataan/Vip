@@ -63,6 +63,32 @@
       min-height: 53vh !important;
       align-items: flex-end !important;
     }
+    .hero-content {
+      text-align: center !important;
+      padding: 30px 20px 18px !important;
+    }
+    .hero-content img {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: min(192px, 50%) !important;
+    }
+    .hero-content > div {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .hero-content p {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      max-width: 34ch !important;
+    }
+    .hero-content p:nth-of-type(1) {
+      font-size: 21px !important;
+      margin-top: 18px !important;
+    }
+    .hero-content p:nth-of-type(2) {
+      font-size: 13px !important;
+      line-height: 1.7 !important;
+    }
   }
   
   /* Hero Slider Styles */
@@ -149,7 +175,7 @@
 <section id="top" style="position:relative;min-height:88vh;display:flex;align-items:flex-start;overflow:hidden;background:#1c1814 url('banner1.jpg') center/cover no-repeat">
   <!-- YouTube video background (plays once hosted over http/https; banner1.jpg shows as fallback) -->
   <div style="position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none">
-    <iframe src="https://www.youtube.com/embed/4uT-QmV__e0?autoplay=1&mute=1&controls=0&loop=1&playlist=4uT-QmV__e0&playsinline=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" title="ฟ้าประทาน VIP" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;transform:translate(-50%,-50%);border:0"></iframe>
+    <iframe id="heroVideo" src="https://www.youtube.com/embed/4uT-QmV__e0?autoplay=1&mute=1&controls=0&loop=1&playlist=4uT-QmV__e0&playsinline=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1" title="ฟ้าประทาน VIP" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;transform:translate(-50%,-50%);border:0"></iframe>
   </div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,24,20,.28),rgba(28,24,20,.62) 62%,rgba(28,24,20,.86));z-index:2"></div>
   
@@ -164,7 +190,7 @@
   </div>
 
   <!-- Logo and text content container -->
-  <div style="position:relative;z-index:3;max-width:1180px;margin:0 auto;width:100%;padding:120px 32px 40px;color:#fff;animation:fpFade .9s ease-out both">
+  <div class="hero-content" style="position:relative;z-index:3;max-width:1180px;margin:0 auto;width:100%;padding:120px 32px 40px;color:#fff;animation:fpFade .9s ease-out both">
     <img src="font-vip-hero.png" alt="VIP Package ฟ้าประทานจัดงานบุญ" style="width:min(240px,46%);height:auto;display:block;filter:drop-shadow(0 6px 22px rgba(0,0,0,.55))">
     <p style="margin-top:30px;font-size:30px;font-weight:300;letter-spacing:1.5px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)">ยกระดับการจัดงานบุญ</p>
     <div style="width:64px;height:2px;margin:22px 0 20px;background:linear-gradient(90deg,#e9c98a,#b08b46)"></div>
@@ -799,6 +825,27 @@ class Component extends DCLogic {
     }
     container = null;
   }, { passive: true });
+})();
+
+/* Force the hero YouTube background to start playing (muted autoplay boosters).
+   Attribute autoplay can be blocked; we also nudge via the IFrame postMessage API
+   and on the first user interaction as a mobile fallback. */
+(function () {
+  function play() {
+    var f = document.getElementById('heroVideo');
+    if (!f || !f.contentWindow) return;
+    try {
+      f.contentWindow.postMessage('{"event":"command","func":"mute","args":[]}', '*');
+      f.contentWindow.postMessage('{"event":"command","func":"playVideo","args":[]}', '*');
+    } catch (e) {}
+  }
+  [600, 1500, 3000].forEach(function (t) { setTimeout(play, t); });
+  ['touchstart', 'pointerdown', 'click', 'scroll'].forEach(function (ev) {
+    window.addEventListener(ev, function handler() {
+      play();
+      window.removeEventListener(ev, handler);
+    }, { passive: true });
+  });
 })();
 </script>
 </body>
