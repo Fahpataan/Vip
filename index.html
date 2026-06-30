@@ -302,31 +302,8 @@
     </div>
     <p style="font-size:16px;color:#6f6557;line-height:1.85;max-width:72ch;margin:-22px 0 44px">ไลน์อาหารบุฟเฟต์โทนขาว-ทอง สะอาด สวยงาม รสชาติไทยแท้ พร้อมป้ายเมนูทุกรายการ เลือกโทนสีจัดงานและเพิ่มเมนูพรีเมียมได้ตามแพ็กเกจ</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:44px">
-      <div data-swipe="food" style="position:relative;border-radius:4px;overflow:hidden;min-height:340px;box-shadow:0 18px 40px rgba(44,38,32,.14);background:#efe7d8">
-        <img src="{{ foodSlideUrl }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="ไลน์อาหาร VIP">
-        <div style="{{ foodOverlay }}"></div>
-        
-        <!-- Slide controls -->
-        <button onClick="{{ prevFoodSlide }}" data-nav="prev" style="all:unset;position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <button onClick="{{ nextFoodSlide }}" data-nav="next" style="all:unset;position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(44,38,32,0.18);z-index:5;transition:all 0.2s" onMouseOver="this.style.background='#fff';this.style.transform='translateY(-50%) scale(1.08)'" onMouseOut="this.style.background='rgba(255,255,255,0.72)';this.style.transform='translateY(-50%) scale(1)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        
-        <!-- Slide Indicator badge -->
-        <div style="position:absolute;top:16px;right:16px;background:rgba(44,38,32,0.68);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;z-index:5;letter-spacing:1px">
-          {{ foodSlideCount }}
-        </div>
-        
-        <!-- Slide Indicator dots -->
-        <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5">
-          <button onClick="{{ setFoodSlide0 }}" style="{{ foodDot0 }}"></button>
-          <button onClick="{{ setFoodSlide1 }}" style="{{ foodDot1 }}"></button>
-          <button onClick="{{ setFoodSlide2 }}" style="{{ foodDot2 }}"></button>
-          <button onClick="{{ setFoodSlide3 }}" style="{{ foodDot3 }}"></button>
-          <button onClick="{{ setFoodSlide4 }}" style="{{ foodDot4 }}"></button>
-        </div>
+      <div style="position:relative;border-radius:4px;overflow:hidden;min-height:340px;box-shadow:0 18px 40px rgba(44,38,32,.14);background:#efe7d8">
+        <img src="{{ foodSlideUrl }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s ease" alt="ไลน์อาหาร VIP">
       </div>
       <div style="display:flex;flex-direction:column;justify-content:center;gap:22px">
         <div>
@@ -453,6 +430,8 @@
     <button onClick="{{ zoomOpen }}" data-src="table-new2.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new2.jpg') center/cover"></button>
     <button onClick="{{ zoomOpen }}" data-src="table-new3.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new3.jpg') center/cover"></button>
     <button onClick="{{ zoomOpen }}" data-src="table-new4.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-new4.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-typeb.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-typeb.jpg') center/cover"></button>
+    <button onClick="{{ zoomOpen }}" data-src="table-typeb2.jpg" style="all:unset;cursor:zoom-in;display:block;width:100%;border-radius:4px;height:160px;background:url('table-typeb2.jpg') center/cover"></button>
   </div>
   <div style="display:flex;align-items:flex-start;gap:12px;margin-top:24px;background:#efe7d8;border-radius:4px;padding:20px 24px">
     <span style="color:#8f6f33;font-size:18px;line-height:1.4">✦</span>
@@ -698,7 +677,7 @@
 </template>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;showTents&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { zoom: null, carpet: 'white', foodTone: 'white', asana: 'slak', ceremonySlideIndex: 0, foodSlideIndex: 0 };
+  state = { zoom: null, carpet: 'white', foodTone: 'white', asana: 'slak', ceremonySlideIndex: 0 };
   renderVals() {
     const carpet = this.state.carpet || 'white';
     const food = this.state.foodTone || 'white';
@@ -717,15 +696,7 @@ class Component extends DCLogic {
       'ceremony-vip8.jpg'
     ];
     const currentSlideUrl = slides[slideIdx];
-    const foodIdx = this.state.foodSlideIndex || 0;
-    const foodSlides = [
-      'food1.jpg',
-      'food2.jpg',
-      'food3.jpg',
-      'food4.jpg',
-      'food5.jpg'
-    ];
-    const currentFoodSlideUrl = foodSlides[foodIdx];
+    const foodLineUrl = food === 'peach' ? 'foodline-peach.jpg' : 'foodline-white.jpg';
     const overlayBase = { position: 'absolute', inset: 0, pointerEvents: 'none', transition: 'opacity .55s ease', mixBlendMode: 'multiply', borderRadius: 'inherit' };
     const peachBg = 'linear-gradient(135deg, rgba(231,196,166,.92), rgba(208,168,128,.62))';
     const circle = (hex, border, sel) => ({ width: '26px', height: '26px', borderRadius: '50%', background: hex, border: '1px solid ' + border, transition: 'box-shadow .2s ease', boxShadow: sel ? '0 0 0 2px #fff, 0 0 0 4px #b08b46' : 'none' });
@@ -756,7 +727,6 @@ class Component extends DCLogic {
       setFoodPeach: () => this.setState({ foodTone: 'peach' }),
       foodWhiteCircle: circle('#fdfcfa', '#d8cdb8', food === 'white'),
       foodPeachCircle: circle('#e9cdb4', '#d8b89c', food === 'peach'),
-      foodOverlay: { ...overlayBase, background: food === 'peach' ? peachBg : 'transparent', opacity: food === 'peach' ? 1 : 0 },
       zoom: this.state.zoom,
       zoomImg: this.state.zoom ? React.createElement('img', { src: this.state.zoom, style: { maxWidth: '92%', maxHeight: '90%', borderRadius: '6px', boxShadow: '0 30px 80px rgba(0,0,0,.5)' } }) : null,
       zoomOpen: (e) => this.setState({ zoom: e.currentTarget.getAttribute('data-src') }),
@@ -784,21 +754,8 @@ class Component extends DCLogic {
       ceremonyDot6: dotStyle(slideIdx === 6),
       ceremonyDot7: dotStyle(slideIdx === 7),
 
-      // Food slides
-      foodSlideUrl: currentFoodSlideUrl,
-      foodSlideCount: (foodIdx + 1) + ' / 5',
-      nextFoodSlide: () => this.setState({ foodSlideIndex: (foodIdx + 1) % 5 }),
-      prevFoodSlide: () => this.setState({ foodSlideIndex: (foodIdx - 1 + 5) % 5 }),
-      setFoodSlide0: () => this.setState({ foodSlideIndex: 0 }),
-      setFoodSlide1: () => this.setState({ foodSlideIndex: 1 }),
-      setFoodSlide2: () => this.setState({ foodSlideIndex: 2 }),
-      setFoodSlide3: () => this.setState({ foodSlideIndex: 3 }),
-      setFoodSlide4: () => this.setState({ foodSlideIndex: 4 }),
-      foodDot0: dotStyle(foodIdx === 0),
-      foodDot1: dotStyle(foodIdx === 1),
-      foodDot2: dotStyle(foodIdx === 2),
-      foodDot3: dotStyle(foodIdx === 3),
-      foodDot4: dotStyle(foodIdx === 4),
+      // Food line tone image
+      foodSlideUrl: foodLineUrl,
 
     };
   }
